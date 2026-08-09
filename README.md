@@ -150,7 +150,7 @@ desktop/src-tauri/target/release/bundle/nsis/Personal KB_0.1.0_x64-setup.exe
 | 层级 | 方案 |
 | --- | --- |
 | 桌面端 | Tauri 2、React、TypeScript、Vite |
-| 文档与媒体处理 | PyMuPDF、Pillow、WhisperX、Faster-Whisper |
+| 文档与媒体处理 | PyMuPDF、Pillow、WhisperX（基于 Faster-Whisper） |
 | 检索 | OpenViking、BM25、`rank-bm25` |
 | 模型服务 | DeepSeek、DashScope |
 | 知识协作 | 本地文件系统、Obsidian、集中式 `relations.json` |
