@@ -1,0 +1,71 @@
+# Supply Chain Analytics — Models and Metrics
+
+## Economic Order Quantity (EOQ)
+
+The classic EOQ model balances ordering costs and holding costs:
+
+    TC = (D/Q) · S + (Q/2) · H + D · C
+
+where D = annual demand, Q = order quantity, S = setup/ordering cost per order,
+H = holding cost per unit per year, C = unit cost. The optimal order quantity:
+
+    Q* = √(2DS / H)
+
+Total relevant cost at Q*: TC* = √(2DSH). The reorder point ROP = d · L,
+where d is daily demand and L is lead time in days.
+
+## Newsvendor Model
+
+For single-period stochastic demand with distribution F(d), the optimal order
+quantity Q* satisfies the critical fractile:
+
+    F(Q*) = c_u / (c_u + c_o)
+
+where c_u = underage cost (lost profit per unit short) and c_o = overage cost
+(loss per unit unsold). This is a cornerstone of perishable and seasonal inventory.
+
+## Bullwhip Effect
+
+The bullwhip effect describes increasing demand variability moving upstream in
+a supply chain. Even small fluctuations in consumer demand can cause large swings
+in orders at the manufacturer level. Key causes:
+
+- Demand forecast updating
+- Order batching
+- Price fluctuations (forward buying)
+- Rationing and shortage gaming
+
+Quantification: Var(Orders) / Var(Demand) increases at each echelon. Information
+sharing and VMI (Vendor-Managed Inventory) mitigate this effect.
+
+## Facility Location and Network Design
+
+The uncapacitated facility location problem (UFLP) minimizes:
+
+    minimize Σ_j f_j y_j + Σ_i Σ_j c_{ij} x_{ij}
+    subject to Σ_j x_{ij} = 1 ∀i,  x_{ij} ≤ y_j ∀i,j,  y_j ∈ {0,1}
+
+where f_j is the fixed cost of opening facility j, c_{ij} is the transportation
+cost from j to demand i. This is a mixed-integer linear program — see s11 for
+LP fundamentals and s12 for branch-and-bound solution methods.
+
+## Safety Stock and Service Levels
+
+For normally distributed lead-time demand with mean μ_L and standard deviation
+σ_L, the safety stock at service level α (cycle service level) is:
+
+    SS = z_α · σ_L
+
+where z_α = Φ⁻¹(α). For a (Q, R) continuous review policy with backordering,
+the fill rate (fraction of demand filled from stock) is:
+
+    Fill Rate = 1 - σ_L · L(z) / Q
+
+where L(z) is the standard normal loss function: L(z) = φ(z) - z(1-Φ(z)).
+
+## Related Topics
+
+- Linear programming for transportation and transshipment models — see s11
+- Branch-and-bound for facility location MIPs — see s12
+- Reliability engineering for spare parts provisioning — see s14
+- Stochastic processes for demand modeling (Poisson arrivals) — see s08

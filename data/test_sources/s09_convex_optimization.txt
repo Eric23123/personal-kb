@@ -1,0 +1,31 @@
+# Convex Optimization — KKT and Duality
+
+## Convex Sets and Functions
+
+A set C is convex if ∀x, y ∈ C, θx + (1-θ)y ∈ C for θ ∈ [0, 1].
+A function f is convex if f(θx + (1-θ)y) ≤ θf(x) + (1-θ)f(y).
+
+## Karush-Kuhn-Tucker (KKT) Conditions
+
+For the problem minimize f(x) subject to g_i(x) ≤ 0, h_j(x) = 0,
+the KKT conditions at a local minimum x* are:
+
+1. Stationarity: ∇f(x*) + Σ λ_i ∇g_i(x*) + Σ ν_j ∇h_j(x*) = 0
+2. Primal feasibility: g_i(x*) ≤ 0, h_j(x*) = 0
+3. Dual feasibility: λ_i ≥ 0
+4. Complementary slackness: λ_i g_i(x*) = 0
+
+For convex problems, KKT conditions are necessary and sufficient for global optimality.
+
+## Lagrangian Duality
+
+The Lagrangian is L(x, λ, ν) = f(x) + Σ λ_i g_i(x) + Σ ν_j h_j(x).
+The dual function is g(λ, ν) = inf_x L(x, λ, ν). The dual problem maximizes
+g(λ, ν) subject to λ ≥ 0. Weak duality: g(λ*, ν*) ≤ f(x*). Strong duality
+holds under Slater's condition for convex problems.
+
+## Related Topics
+
+- Gradient methods for solving convex problems — see s10
+- Linear programming as a special case of convex optimization — see s11
+- SGD for non-convex optimization — see s10

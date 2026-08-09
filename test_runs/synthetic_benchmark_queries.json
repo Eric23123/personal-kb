@@ -1,0 +1,138 @@
+{
+  "benchmark": {
+    "name": "synthetic_benchmark_queries",
+    "version": "1.1.0",
+    "description": "18 hardened synthetic benchmark queries (one per test source s01..s18). Queries use paraphrased concepts, equations/symbols, and indirect descriptions to stress retrieval — avoiding verbatim overlap with required terms.",
+    "created": "2026-07-21",
+    "hardened": "2026-07-21",
+    "total_queries": 18
+  },
+  "queries": [
+    {
+      "id": "q01",
+      "query": "In the ẋ=Ax+Bu, y=Cx+D framework: what eigenvalue-based rank test on the augmented matrix [λI−A  B] diagnoses whether every mode can be reached from the input, and why does the solution P satisfying AᵀP+PA=−Q being strictly >0 imply that the unforced trajectory x(t) converges to the origin?",
+      "required": ["controllability", "PBH test", "Lyapunov equation", "state-space", "positive definite"],
+      "source_hints": ["linear systems", "state-space theory", "stability analysis", "controllability tests"],
+      "expected_source": "s01_linear_systems_theory.txt"
+    },
+    {
+      "id": "q02",
+      "query": "Given an open-loop L(s), how do you compute the multiplicative factor by which |L(jω)| can grow before the frequency where ∠L(jω)=−180° becomes problematic, and the extra phase lag tolerated at the frequency where |L(jω)| crosses unity? Then explain the relationship N = Z − P linking encirclements of the point −1+j0 to the count of closed-loop right-half-plane poles.",
+      "required": ["gain margin", "phase margin", "Nyquist criterion", "Routh-Hurwitz", "crossover frequency"],
+      "source_hints": ["frequency response", "Bode plot", "stability margins", "Nyquist plot"],
+      "expected_source": "s02_frequency_domain_analysis.txt"
+    },
+    {
+      "id": "q03",
+      "query": "For ẋ=f(x) with f(x₀)=0: how does evaluating the partial-derivative matrix ∂f/∂x at the steady state enable a local stability conclusion when paired with a scalar energy-like V(x) satisfying V(0)=0, V(x)>0, and V̇(x)<0 away from the origin? Separately, how does replacing a static nonlinear element by its first-harmonic complex gain N(A) predict the amplitude at which a self-sustained periodic orbit locks in?",
+      "required": ["Lyapunov function", "describing function", "limit cycle", "Jacobian linearization", "equilibrium"],
+      "source_hints": ["nonlinear dynamics", "Lyapunov methods", "describing functions", "stability"],
+      "expected_source": "s03_nonlinear_control_intro.txt"
+    },
+    {
+      "id": "q04",
+      "query": "Minimizing the integral ∫₀^∞(xᵀQx+uᵀRu)dt subject to ẋ=Ax+Bu: from the scalar function H(x,u,λ)=L+λᵀf, derive the adjoint differential equation dλ/dt=−∂H/∂x and show how the optimal cost-to-go V(x)=xᵀPx satisfies both the dynamic-programming optimality PDE and the quadratic matrix equation AᵀP+PA−PBR⁻¹BᵀP+Q=0.",
+      "required": ["Algebraic Riccati Equation", "Hamiltonian", "costate", "Bellman", "LQR"],
+      "source_hints": ["optimal control", "Riccati equation", "Pontryagin", "dynamic programming"],
+      "expected_source": "s04_optimal_control_lqr.txt"
+    },
+    {
+      "id": "q05",
+      "query": "Given a triple (Ω, ℱ, P), contrast the convergence mode where P(lim Xₙ=X)=1 against the mode where E[|Xₙ−X|ᵖ]→0. State the result that (1/√n)∑(Xᵢ−μ) converges in law to N(0,σ²) for independent and identically distributed summands with finite variance, and explain why measurability with respect to the event collection ℱ is essential for defining the Lebesgue integral ∫X dP.",
+      "required": ["almost sure convergence", "central limit theorem", "σ-algebra", "expectation", "i.i.d."],
+      "source_hints": ["measure theory", "convergence modes", "probability foundations", "CLT"],
+      "expected_source": "s05_probability_foundations.txt"
+    },
+    {
+      "id": "q06",
+      "query": "When the normalizing constant ∫p(D|θ)p(θ)dθ is analytically intractable: compare a Markov chain construction using a proposal distribution q(·|·) with acceptance probability min(1, [p(θ*|D)q(θₜ|θ*)]/[p(θₜ|D)q(θ*|θₜ)]) against a coordinate-wise scheme that draws each component from its complete conditional. Then explain how maximizing log p(D) − D_KL(q(θ)||p(θ|D)) over a variational family relates to the log marginal likelihood.",
+      "required": ["Metropolis-Hastings", "conjugate prior", "posterior", "Gibbs sampling", "ELBO"],
+      "source_hints": ["Bayesian inference", "MCMC", "variational inference", "conjugate families"],
+      "expected_source": "s06_bayesian_inference.txt"
+    },
+    {
+      "id": "q07",
+      "query": "For testing H₀:θ=θ₀ against H₁:θ=θ₁, the decision rule that thresholds the likelihood ratio L(θ₁|x)/L(θ₀|x) maximizes detection probability at a fixed false-alarm rate α. Derive the number of observations required to achieve probability 1−β of correctly rejecting a false null given effect size δ and threshold α. Then contrast controlling the probability of any false rejection among m tests with controlling the expected proportion of rejections that are spurious.",
+      "required": ["Neyman-Pearson lemma", "p-value", "power", "Type II error", "false discovery rate"],
+      "source_hints": ["hypothesis testing", "significance", "power analysis", "multiple comparisons"],
+      "expected_source": "s07_hypothesis_testing.txt"
+    },
+    {
+      "id": "q08",
+      "query": "For a discrete-time process where every state communicates with every other and return times are not confined to multiples of some integer d>1: prove that π=πP admits exactly one probability-vector solution and that the n-step transition probabilities converge to π regardless of the starting state. Then contrast a counting process with independent increments, rate λ, and exponential(λ) inter-arrival gaps against a continuous-path process with stationary independent Gaussian increments W(t)−W(s)~N(0,|t−s|).",
+      "required": ["Markov chain", "stationary distribution", "Poisson process", "Brownian motion", "irreducible"],
+      "source_hints": ["stochastic processes", "Markov property", "point processes", "Wiener process"],
+      "expected_source": "s08_stochastic_processes.txt"
+    },
+    {
+      "id": "q09",
+      "query": "For min f(x) subject to gᵢ(x)≤0, hⱼ(x)=0 with convex f and convex gᵢ: state the four necessary conditions — gradient stationarity, primal feasibility, dual sign restriction, and the orthogonality condition λᵢ·gᵢ(x*)=0 linking each inequality constraint to its multiplier. Then identify the interior-point requirement on the inequality constraints that guarantees the infimum of the saddle function L(x,λ,ν) = f(x)+∑λᵢgᵢ(x)+∑νⱼhⱼ(x) equals the primal optimum when the gᵢ are non-convex.",
+      "required": ["KKT conditions", "complementary slackness", "Lagrangian", "dual function", "Slater's condition"],
+      "source_hints": ["convex optimization", "duality theory", "constraint qualification", "Lagrangian"],
+      "expected_source": "s09_convex_optimization.txt"
+    },
+    {
+      "id": "q10",
+      "query": "For an objective f satisfying μI ≼ ∇²f(x) ≼ LI for all x, the iteration xₖ₊₁=xₖ−α∇f(xₖ) with α=1/L achieves f(xₖ)−f* ≤ (1−μ/L)ᵏ(f(x₀)−f*). Contrast this with an update that tracks the exponential-decay averages mₖ=β₁mₖ₋₁+(1−β₁)gₖ and vₖ=β₂vₖ₋₁+(1−β₂)gₖ², then steps along m̂ₖ/√(v̂ₖ)+ε after dividing out the initialization bias. How does this differ from preconditioning the gradient by the inverse of the second-derivative matrix?",
+      "required": ["gradient descent", "Adam", "exponential moving average", "strongly convex", "Newton's method"],
+      "source_hints": ["optimization algorithms", "convergence rates", "adaptive methods", "second-order methods"],
+      "expected_source": "s10_gradient_methods.txt"
+    },
+    {
+      "id": "q11",
+      "query": "In the standard form min cᵀx s.t. Ax=b, x≥0: at a vertex defined by a square nonsingular submatrix B, explain how the quantity cⱼ−c_BᵀB⁻¹Aⱼ guides pivot-column selection, what minimum-ratio criterion over (B⁻¹b)ᵢ/(B⁻¹Aⱼ)ᵢ determines which row leaves the basis, and why the optimal basis inverse row y*ᵀ=c_BᵀB⁻¹ quantifies the marginal objective improvement per unit of right-hand-side relaxation.",
+      "required": ["simplex method", "reduced cost", "basic feasible solution", "dual", "shadow prices"],
+      "source_hints": ["linear programming", "simplex algorithm", "LP duality", "sensitivity analysis"],
+      "expected_source": "s11_linear_programming.txt"
+    },
+    {
+      "id": "q12",
+      "query": "For selecting from n items with weights wᵢ and values vᵢ to maximize total value under capacity W: write the optimal substructure recursion V(i,w)=max(V(i−1,w), vᵢ+V(i−1,w−wᵢ)) and explain how relaxing the integrality constraint to 0≤xᵢ≤1 produces a bound that can prune subtrees in an enumeration tree. Then contrast a method that probabilistically moves to a worse solution with acceptance probability exp(−ΔE/T) against heuristics that always take a locally best step.",
+      "required": ["Bellman's principle", "knapsack", "branch and bound", "simulated annealing", "approximation algorithm"],
+      "source_hints": ["combinatorial optimization", "dynamic programming", "heuristics", "branch and bound"],
+      "expected_source": "s12_combinatorial_optimization.txt"
+    },
+    {
+      "id": "q13",
+      "query": "In a modeling notation extended from UML for multidisciplinary systems: what diagram type captures the compositional hierarchy of structural elements, and what diagram type reveals the connectors and ports through which those elements interact? Then compare an acausal, declarative language where physical laws like der(ω)=−g/L·sin(θ) are stated as simultaneous constraints against a power-port formalism built on effort-flow pairs that enforce power continuity across common-junction nodes.",
+      "required": ["SysML", "Block Definition Diagram", "Modelica", "bond graph", "equation-based"],
+      "source_hints": ["systems engineering", "modeling languages", "Modelica", "bond graphs"],
+      "expected_source": "s13_systems_modeling.txt"
+    },
+    {
+      "id": "q14",
+      "query": "Starting from an instantaneous failure intensity h(t)=(β/η)(t/η)^{β−1}: derive the survival function R(t)=exp(−(t/η)^β) and its integral E[T]=∫₀^∞R(t)dt. How does a structured risk-prioritization worksheet that multiplies three ordinal scores — seriousness of the end effect, likelihood of the cause occurring, and probability of escaping detection — rank failure modes across design, manufacturing, and field-support lifecycle phases?",
+      "required": ["hazard rate", "Weibull", "MTTF", "reliability function", "FMEA"],
+      "source_hints": ["reliability engineering", "Weibull distribution", "FMEA", "life data analysis"],
+      "expected_source": "s14_reliability_engineering.txt"
+    },
+    {
+      "id": "q15",
+      "query": "For a deterministic demand flow at rate D, with fixed replenishment cost S per order and per-unit-per-year inventory carrying cost H: derive the lot size that balances the two cost components, yielding Q*=√(2DS/H). Explain why modest variance in end-customer purchases can amplify into increasingly volatile upstream order streams. Then describe how the ratio cᵤ/(cᵤ+cₒ), where cᵤ is the per-unit cost of stocking too little and cₒ is the per-unit cost of stocking too much, determines the single-period procurement quantity under stochastic demand.",
+      "required": ["EOQ", "bullwhip", "holding cost", "safety stock", "newsvendor"],
+      "source_hints": ["supply chain analytics", "inventory models", "bullwhip effect", "EOQ"],
+      "expected_source": "s15_supply_chain_analytics.txt"
+    },
+    {
+      "id": "q16",
+      "query": "For a discrete-time system described by y[n]+a₁y[n−1]=b₀x[n]+b₁x[n−1], derive H(z)=Y(z)/X(z)=(b₀+b₁z⁻¹)/(1+a₁z⁻¹) and contrast finite-duration impulse-response structures where the denominator polynomial is identically 1 against recursive architectures where past outputs feed back. Then state the bound relating the minimum sampling rate to the highest analog frequency that prevents spectral overlap during analog-to-digital conversion.",
+      "required": ["FIR", "IIR", "z-transform", "transfer function", "frequency response"],
+      "source_hints": ["digital signal processing", "Z-transform", "filter design", "sampling theorem"],
+      "expected_source": "s16_digital_signal_processing.txt"
+    },
+    {
+      "id": "q17",
+      "query": "For the linear Gauss-Markov model xₖ₊₁=Fₖxₖ+wₖ with measurements yₖ=Hₖxₖ+vₖ and uncorrelated white noises wₖ~N(0,Qₖ), vₖ~N(0,Rₖ): write the two-stage recursion that first propagates the estimate forward as Fₖ₋₁x̂ₖ₋₁|ₖ₋₁ then corrects it using the innovation yₖ−Hₖx̂ₖ|ₖ₋₁ weighted by a gain matrix. Explain why the error second-moment matrix evolves through Pₖ|ₖ₋₁=Fₖ₋₁Pₖ₋₁|ₖ₋₁Fₖ₋₁ᵀ+Qₖ₋₁ and how the steady-state algebraic quadratic matrix equation for P mirrors the one arising in linear-quadratic regulation. What does the conditional mean E[x|y] minimize in the mean-squared sense?",
+      "required": ["Kalman filter", "MMSE", "Riccati", "covariance", "prediction"],
+      "source_hints": ["estimation theory", "Kalman filtering", "Riccati equation", "LQR duality"],
+      "expected_source": "s17_estimation_theory_kalman.txt"
+    },
+    {
+      "id": "q18",
+      "query": "For a discrete random variable with probability mass function p(x), define the quantity −∑p(x)log₂ p(x) and the reduction H(X)−H(X|Y) that measures shared information. Using the chain rule H(X,Y)=H(X)+H(Y|X), derive C = max_{p(x)} I(X;Y) as the supremum of rates at which reliable communication is possible. Interpret I(X;Y) as the expected log-ratio ∑_{x,y} p(x,y) log₂(p(x,y)/[p(x)p(y)]), and explain why this expression is always nonnegative.",
+      "required": ["entropy", "mutual information", "channel capacity", "Shannon", "Kullback-Leibler"],
+      "source_hints": ["information theory", "Shannon entropy", "channel coding", "divergence measures"],
+      "expected_source": "s18_information_theory.txt"
+    }
+  ]
+}

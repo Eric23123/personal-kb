@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "hash_algorithm": "sha256",
+  "required_fields": ["source_path", "source_hash", "source_type"],
+  "sources": [
+    {
+      "_comment": "Example textbook chapter — spans multiple lectures, so omit 'lecture'",
+      "source_path": "books/course_textbook/ch01_intro.pdf",
+      "source_hash": "<64-char SHA-256 hex digest of the file>",
+      "source_type": "textbook",
+      "course": "COURSE_CODE",
+      "semester": "FA26",
+      "date": "2026-09-01",
+      "corpus": "course"
+    },
+    {
+      "_comment": "Example lecture transcript — tied to a specific lecture",
+      "source_path": "lectures/lecture_01_transcript.txt",
+      "source_hash": "<64-char SHA-256 hex digest of the file>",
+      "source_type": "transcript",
+      "course": "COURSE_CODE",
+      "lecture": 1,
+      "semester": "FA26",
+      "date": "2026-08-26",
+      "corpus": "course"
+    },
+    {
+      "_comment": "Example homework — no lecture binding, assessment scope",
+      "source_path": "homework/hw1.pdf",
+      "source_hash": "<64-char SHA-256 hex digest of the file>",
+      "source_type": "homework",
+      "course": "COURSE_CODE",
+      "semester": "FA26",
+      "date": "2026-09-15",
+      "corpus": "course"
+    },
+    {
+      "_comment": "Example exam — assessment scope, no lecture binding",
+      "source_path": "exams/midterm.pdf",
+      "source_hash": "<64-char SHA-256 hex digest of the file>",
+      "source_type": "exam",
+      "course": "COURSE_CODE",
+      "semester": "FA26",
+      "date": "2026-10-20",
+      "corpus": "course"
+    },
+    {
+      "_comment": "Example diagram-rich slides — for diagram extraction",
+      "source_path": "slides/lecture_01_slides.pdf",
+      "source_hash": "<64-char SHA-256 hex digest of the file>",
+      "source_type": "slides",
+      "course": "COURSE_CODE",
+      "lecture": 1,
+      "semester": "FA26",
+      "date": "2026-08-26",
+      "corpus": "course"
+    },
+    {
+      "_comment": "Example derived text — OCR output from a scanned source",
+      "source_path": "lectures/lecture_02_ocr.txt",
+      "source_hash": "<64-char SHA-256 hex digest of the .txt file>",
+      "source_type": "transcript",
+      "course": "COURSE_CODE",
+      "lecture": 2,
+      "semester": "FA26",
+      "date": "2026-09-01",
+      "corpus": "course",
+      "derived_text_path": "lectures/lecture_02_scanned.pdf",
+      "derived_hash": "<64-char SHA-256 hex digest of the original scanned PDF>"
+    }
+  ]
+}

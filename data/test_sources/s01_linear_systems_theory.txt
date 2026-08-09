@@ -1,0 +1,52 @@
+# Linear Systems Theory — State-Space Foundations
+
+## State-Space Representation
+
+A continuous-time linear time-invariant (LTI) system is described by:
+
+    dx/dt = A x(t) + B u(t)
+    y(t)  = C x(t) + D u(t)
+
+where x ∈ R^n is the state vector, u ∈ R^m is the input, y ∈ R^p is the output.
+A ∈ R^{n×n} is the system matrix, B ∈ R^{n×m} is the input matrix,
+C ∈ R^{p×n} is the output matrix, and D ∈ R^{p×m} is the feedthrough matrix.
+
+## Controllability
+
+The system (A, B) is controllable if the controllability matrix
+
+    C = [B, AB, A²B, ..., A^{n-1}B]
+
+has full row rank n. Equivalently, the controllability Gramian
+
+    W_c(t) = ∫₀ᵗ e^{Aτ} B B^T e^{A^Tτ} dτ
+
+is positive definite for any t > 0. The PBH test states that (A, B) is
+controllable iff rank([λI - A, B]) = n for every eigenvalue λ of A.
+
+## Observability
+
+The system (A, C) is observable if the observability matrix
+
+    O = [C; CA; CA²; ...; CA^{n-1}]
+
+has full column rank n. The dual relationship: (A, C) is observable iff
+(A^T, C^T) is controllable.
+
+## Lyapunov Stability
+
+For the autonomous system dx/dt = A x, the equilibrium x = 0 is:
+
+- Stable if for any Q = Q^T > 0, there exists P = P^T > 0 satisfying
+  A^T P + P A = -Q (Lyapunov equation).
+
+- Asymptotically stable iff all eigenvalues of A have negative real parts.
+
+The Lyapunov function V(x) = x^T P x proves stability with dV/dt = -x^T Q x < 0.
+
+## Related Topics
+
+- Frequency-domain analysis (Bode, Nyquist) — see s02
+- Nonlinear extensions (Lyapunov linearization) — see s03
+- Optimal control LQR builds on these foundations — see s04
+- Kalman filtering uses the dual observability structure — see s17

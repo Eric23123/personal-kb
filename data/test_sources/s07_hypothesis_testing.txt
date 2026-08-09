@@ -1,0 +1,39 @@
+# Hypothesis Testing Framework
+
+## Neyman-Pearson Lemma
+
+For testing H₀: θ = θ₀ vs H₁: θ = θ₁, the most powerful test at level α rejects
+H₀ when the likelihood ratio exceeds a threshold:
+
+    Λ(x) = L(θ₁|x) / L(θ₀|x) > k
+
+where k is chosen so that P_{H₀}(Λ(X) > k) = α.
+
+## P-values and Significance
+
+The p-value is the probability, under H₀, of observing a test statistic as extreme
+or more extreme than the observed value. Reject H₀ if p < α.
+
+Common misinterpretations of p-values:
+- p > 0.05 does NOT mean H₀ is true
+- p < 0.05 does NOT mean the effect is practically important
+- The p-value is NOT the probability that H₀ is true
+
+## Power Analysis
+
+Power = P(reject H₀ | H₁ is true) = 1 - β, where β is the Type II error rate.
+Power depends on: sample size n, effect size δ, significance level α, test choice.
+
+For a two-sample z-test: n ≈ 2(z_{α/2} + z_β)² · σ² / δ²
+
+## Multiple Testing
+
+When testing m hypotheses, the family-wise error rate (FWER) is controlled by
+Bonferroni correction: reject only if p_i < α/m. The false discovery rate (FDR)
+is controlled by the Benjamini-Hochberg procedure.
+
+## Related Topics
+
+- CLT justifies normal approximations for test statistics — see s05
+- Bayesian hypothesis testing via Bayes factors — see s06
+- A/B testing as a practical application of hypothesis testing — see s12

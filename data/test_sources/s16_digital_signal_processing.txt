@@ -1,0 +1,67 @@
+# Digital Signal Processing — Sampling, Transforms, and Filters
+
+## Sampling Theorem
+
+The Nyquist-Shannon sampling theorem: a bandlimited continuous-time signal x(t)
+with maximum frequency f_max can be perfectly reconstructed from its samples
+x[n] = x(nT_s) if the sampling rate f_s > 2 f_max. The Nyquist rate is 2 f_max.
+
+Reconstruction via the sinc interpolation formula:
+
+    x(t) = Σ_{n=-∞}^{∞} x[n] · sinc((t - nT_s) / T_s)
+
+where sinc(x) = sin(πx) / (πx). Aliasing occurs when f_s ≤ 2 f_max; spectral
+components above f_s/2 fold back into the baseband [0, f_s/2].
+
+## Z-Transform
+
+The Z-transform of a discrete-time sequence x[n] is:
+
+    X(z) = Σ_{n=-∞}^{∞} x[n] z^{-n}
+
+where z is a complex variable. The region of convergence (ROC) determines
+causality and stability. For a causal system, the ROC is the exterior of a circle.
+Stability requires that the ROC includes the unit circle |z| = 1.
+
+The discrete-time Fourier transform (DTFT) is X(e^{jω}) = X(z)|_{z=e^{jω}},
+the Z-transform evaluated on the unit circle. Compare with the continuous-time
+frequency response G(jω) = C(jωI - A)⁻¹B + D and Bode analysis — see s02.
+
+## Discrete Fourier Transform (DFT)
+
+The N-point DFT and its inverse:
+
+    X[k] = Σ_{n=0}^{N-1} x[n] W_N^{kn},   k = 0, ..., N-1
+    x[n] = (1/N) Σ_{k=0}^{N-1} X[k] W_N^{-kn},   n = 0, ..., N-1
+
+where W_N = e^{-j2π/N}. The DFT maps N time-domain samples to N frequency-domain
+samples equally spaced between 0 and 2π, corresponding to frequencies 0 to f_s.
+
+The Fast Fourier Transform (FFT) reduces computation from O(N²) to O(N log N)
+via the Cooley-Tukey radix-2 algorithm: recursively decompose an N-point DFT into
+two N/2-point DFTs (even and odd indices), exploiting W_N^{k+N/2} = -W_N^k.
+
+## FIR and IIR Filter Design
+
+A linear time-invariant (LTI) digital filter is described by the difference equation:
+
+    y[n] = Σ_{k=0}^{M} b_k x[n-k] - Σ_{k=1}^{N} a_k y[n-k]
+
+Transfer function: H(z) = (Σ_{k=0}^{M} b_k z^{-k}) / (1 + Σ_{k=1}^{N} a_k z^{-k})
+
+- FIR (Finite Impulse Response): a_k = 0 for all k ≥ 1, H(z) = Σ b_k z^{-k}.
+  Always stable, can have exactly linear phase with symmetric coefficients.
+
+- IIR (Infinite Impulse Response): at least one a_k ≠ 0. More efficient
+  (lower order for same magnitude response), but must check stability (all poles
+  inside the unit circle) and phase is nonlinear.
+
+Window method for FIR design: multiply the ideal impulse response h_d[n] by a
+window w[n] (e.g., Hamming, Kaiser) to reduce Gibbs phenomenon.
+
+## Related Topics
+
+- Frequency-domain analysis (Bode, Nyquist) and transfer functions — see s02
+- State-space representations for digital systems: x[n+1] = A x[n] + B u[n] — see s01
+- Kalman filter as an optimal recursive digital filter — see s17
+- Quantization and information-theoretic rate-distortion bounds — see s18

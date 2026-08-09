@@ -1,0 +1,72 @@
+# Reliability Engineering — Failure Analysis and Life Data
+
+## Reliability Function and Hazard Rate
+
+The reliability function R(t) is the probability that a component survives to time t:
+
+    R(t) = P(T > t) = 1 - F(t) = exp(-∫₀ᵗ h(τ) dτ)
+
+where F(t) is the CDF of failure time T and h(t) = f(t)/R(t) is the hazard rate
+(instantaneous failure rate). The MTTF (Mean Time To Failure) is:
+
+    MTTF = E[T] = ∫₀^∞ R(t) dt
+
+For a constant hazard rate h(t) = λ (exponential distribution):
+R(t) = e^{-λt}, MTTF = 1/λ. This is the simplest model using a homogeneous Poisson
+failure process — see s08 for Poisson process foundations.
+
+## Weibull Distribution
+
+The Weibull distribution is the workhorse of reliability analysis:
+
+    f(t) = (β/η)(t/η)^{β-1} exp(-(t/η)^β)
+
+where β is the shape parameter and η is the scale parameter (characteristic life).
+The hazard rate is h(t) = (β/η)(t/η)^{β-1}.
+
+Shape parameter interpretation:
+- β < 1: decreasing hazard rate (infant mortality, "burn-in" failures)
+- β = 1: constant hazard rate (exponential, random failures)
+- β > 1: increasing hazard rate (wear-out, aging failures)
+
+The Weibull CDF: F(t) = 1 - exp(-(t/η)^β).
+
+## Reliability Block Diagrams (RBD)
+
+RBDs model system reliability from component reliabilities:
+
+Series system (all must work):
+    R_sys(t) = ∏ᵢ R_i(t)
+
+Parallel system (at least one must work, for n independent components):
+    R_sys(t) = 1 - ∏ᵢ (1 - R_i(t))
+
+For a k-out-of-n system where at least k of n must function:
+    R_sys(t) = Σ_{i=k}^n C(n,i) [R(t)]^i [1-R(t)]^{n-i}
+
+## Failure Mode and Effects Analysis (FMEA)
+
+FMEA systematically identifies potential failure modes, their causes, and effects.
+Each failure mode is scored by the Risk Priority Number (RPN):
+
+    RPN = Severity × Occurrence × Detection
+
+where each factor is rated 1-10. High RPN items receive corrective action first.
+FMEA is a cornerstone of Design for Reliability (DfR).
+
+## Accelerated Life Testing (ALT)
+
+ALT extrapolates reliability at use conditions from elevated stress tests. The
+Arrhenius model relates life to temperature:
+
+    L(T) = A · exp(E_a / (kT))
+
+where E_a is the activation energy (eV), k is Boltzmann's constant, and T is
+absolute temperature. The acceleration factor AF = L_use / L_stress.
+
+## Related Topics
+
+- Poisson processes and exponential failure times — see s08
+- System reliability modeling via SysML and bond graphs — see s13
+- Markov chain availability models (repairable systems) — see s08
+- Supply chain reliability and spare parts inventory — see s15

@@ -1,0 +1,40 @@
+# Stochastic Processes — Markov Chains and Beyond
+
+## Markov Chains
+
+A discrete-time Markov chain {X_n} satisfies the Markov property:
+
+    P(X_{n+1} = j | X_n = i, X_{n-1}, ..., X₀) = P(X_{n+1} = j | X_n = i)
+
+The transition matrix P = [p_{ij}] where p_{ij} = P(X_{n+1} = j | X_n = i).
+
+## Stationary Distribution
+
+π is a stationary distribution if π = π P. For an irreducible, aperiodic Markov
+chain, π is unique and X_n →^D π regardless of the initial distribution.
+
+## Poisson Process
+
+A counting process N(t) is a Poisson process with rate λ if:
+1. N(0) = 0
+2. Independent increments
+3. P(N(t+h) - N(t) = 1) = λh + o(h)
+4. P(N(t+h) - N(t) ≥ 2) = o(h)
+
+The inter-arrival times are i.i.d. Exponential(λ).
+
+## Brownian Motion (Wiener Process)
+
+A process W(t) is standard Brownian motion if:
+1. W(0) = 0
+2. Independent increments: W(t) - W(s) ~ N(0, t-s) for t > s
+3. Continuous sample paths
+
+The stochastic integral ∫ f(t) dW(t) is the foundation of stochastic calculus.
+
+## Related Topics
+
+- Probability foundations — see s05
+- Markov chains in MCMC — see s06
+- Poisson processes in reliability (failure times) — see s14
+- Brownian motion in Kalman-Bucy filter — see s17

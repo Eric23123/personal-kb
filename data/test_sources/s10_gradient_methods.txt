@@ -1,0 +1,41 @@
+# Gradient-Based Optimization Methods
+
+## Gradient Descent
+
+For minimizing f(x), the iteration x_{k+1} = x_k - α_k ∇f(x_k) converges to a
+stationary point. For L-smooth, μ-strongly convex functions, gradient descent
+with fixed step size α = 1/L achieves linear convergence:
+
+    f(x_k) - f* ≤ (1 - μ/L)^k (f(x₀) - f*)
+
+## Stochastic Gradient Descent (SGD)
+
+When the gradient is estimated from a minibatch B:
+
+    g_k = (1/|B|) Σ_{i∈B} ∇f_i(x_k)
+
+The learning rate schedule α_k is crucial. Common choices:
+- α_k = α₀ / (1 + γk) (inverse decay)
+- α_k = α₀ · γ^{k/T} (exponential decay)
+- Cosine annealing: α_k = α₀ · (1 + cos(πk/T)) / 2
+
+## Adam Optimizer
+
+Adam maintains exponential moving averages of gradients (m_k) and squared gradients
+(v_k), with bias correction:
+
+    m_k = β₁ m_{k-1} + (1-β₁) g_k
+    v_k = β₂ v_{k-1} + (1-β₂) g_k²
+    x_{k+1} = x_k - α · m̂_k / (√v̂_k + ε)
+
+## Newton's Method
+
+Newton's method uses the Hessian: x_{k+1} = x_k - [∇²f(x_k)]⁻¹ ∇f(x_k).
+For strongly convex functions, it achieves quadratic convergence near the optimum.
+The cost is O(n³) per iteration for the Hessian inverse.
+
+## Related Topics
+
+- Convexity guarantees convergence — see s09
+- KKT conditions for constrained optimization — see s09
+- SGD is the workhorse for deep learning — see s06, s12

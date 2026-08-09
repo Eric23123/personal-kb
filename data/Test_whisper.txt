@@ -1,0 +1,94 @@
+[0.00s -> 5.78s]  closed-loop control systems. A control system is a mechanism that alters the future behavior
+[5.78s -> 12.52s]  or state of a system. Now, in order to be considered a control system and not simply a
+[12.52s -> 18.86s]  change-the-state system, the behavior or the outcome must tend towards a state that is desired.
+[20.00s -> 25.66s]  Control theory is a branch of mathematics that is concerned with the strategy to select the
+[25.66s -> 32.42s]  appropriate input. Or, to put it another way, it deals with how to go about generating that outcome.
+[34.32s -> 41.52s]  Without control theory, the designer is relegated to selecting appropriate actions through trial and
+[41.52s -> 48.36s]  error. Now, all control systems have two basic parts. The system to be controlled, usually called
+[48.36s -> 55.00s]  the plant, and an input into the plant. The input acts on the plant, which responds over time to
+[55.00s -> 60.90s]  produce a system output. This type of control system is called an open-loop system because the
+[60.90s -> 67.22s]  input does not depend on the system output. Open-loop control systems are typically reserved for
+[67.22s -> 74.22s]  simple processes that have well-defined input-output behaviors. For example, a dishwasher is an open-loop
+[74.22s -> 80.64s]  control system. The goal of a dishwasher, which is the plant, is clean dishes, which is the output.
+[80.64s -> 88.54s]  Once the user sets the wash time, which controls the time to clean the dishes, the dishwasher will run
+[88.54s -> 95.60s]  for that set time. Now, this is true regardless of the cleanliness of the dishes. If the dishes loaded were
+[95.60s -> 101.18s]  cleaned to begin with, the dishwasher would still run for the prescribed time. Further, if you loaded the
+[101.18s -> 106.14s]  dishwasher with 10 plates full of cake, the set time might not be enough to clean them.
+[106.14s -> 115.64s]  Another common example of open-loop control is a sprinkler system for your lawn. In this control
+[115.64s -> 123.90s]  system, the system output is the moisture content of the soil. Again, the user sets the timer, which
+[123.90s -> 128.60s]  controls the amount of time to run the sprinklers. And while the sprinklers are running, the plant,
+[128.60s -> 134.94s]  which is the grass in this case, is being watered. Again, an open-loop sprinkler system would still run
+[134.94s -> 140.32s]  even if it was raining outside. For a more complicated example, imagine trying to obtain
+[140.32s -> 145.26s]  a constant speed in your car without the benefit of the built-in automatic cruise control.
+[146.30s -> 151.28s]  To do this, you wedge a rod between the front of your seat and the gas pedal to depress it halfway down.
+[152.30s -> 158.06s]  The output of the control system is the speed of the car, and the input is the position of the gas
+[158.06s -> 164.92s]  pedal. Again, the car itself is the plant. The car begins to accelerate down a flat road until the
+[164.92s -> 169.88s]  force supplied to the system is balanced by the force of friction. At this point, the car stops
+[169.88s -> 175.00s]  accelerating and maintains a constant speed. But what happens when the car encounters a hill or a
+[175.00s -> 181.32s]  valley? Without varying the input that is adjusting the gas pedal, the car will slow down or speed up,
+[181.32s -> 187.16s]  and the desired constant speed will not be maintained. This is the primary drawback to open-loop control.
+[187.16s -> 191.16s]  The input to the system has no way to compensate for variations in the system.
+[192.04s -> 196.76s]  Now, to account for these changes, you must vary the input to your system with respect to the output,
+[196.76s -> 199.96s]  and this type of control system is called a closed-loop control system.
+[201.80s -> 206.84s]  Now, in addition to calling it closed-loop control, this can also be referred to as feedback control,
+[206.84s -> 211.00s]  negative feedback control, or automatic control. For the time being, we'll use these terms
+[211.00s -> 216.12s]  interchangeably, although there are slight variations between some of them that we won't address in this lecture.
+[216.28s -> 221.24s]  In closed-loop control, you measure the output of the system with a sensor and compare the result
+[221.24s -> 226.84s]  against a reference signal. Often this is referred to as the desired state or the commanded state.
+[226.84s -> 232.04s]  An error term is generated and then fed through a controller where the error is converted into a
+[232.04s -> 238.04s]  system input value. When drawn in block diagram form, it's easy to see why this is referred to as a control
+[238.04s -> 243.80s]  loop. The negative part of the negative feedback control term is based on the comparator juncture,
+[243.80s -> 249.32s]  where the feedback is subtracted. So how does feedback control work in practice? Well,
+[249.32s -> 254.52s]  let's take the case of the dishwasher. There could be a sensor that measures the cleanliness of the
+[254.52s -> 259.64s]  plates. The reference signal would be some sort of desired cleanliness level that would be set
+[259.64s -> 267.96s]  either by the manufacturer or by the user. This desired cleanliness level would be compared to the
+[267.96s -> 274.52s]  measured level. An error term would be generated, which would be fed through a controller which would
+[274.52s -> 281.40s]  monitor when to shut off the dishwasher. A sprinkler system could also benefit from closed loop control.
+[282.20s -> 288.52s]  The sensor could be a device planted in the soil that measures the moisture content of the plant.
+[288.52s -> 296.04s]  Remember that in this case the plant is both the grass and the soil. The reference signal would be a desired
+[296.04s -> 302.92s]  soil moisture content. And again, the error signal would be generated, which would then be fed through
+[302.92s -> 309.80s]  a controller, and the controller would adjust the amount of time that the sprinklers ran. The sprinklers
+[309.80s -> 315.64s]  would then run until the moisture level reached a specified value, and then they would be shut off.
+[318.92s -> 323.40s]  For the car with cruise control, closed loop control would work something like this.
+[325.24s -> 331.64s]  The sensor is a speedometer which measures the speed of the car. The reference speed would be the
+[331.64s -> 335.08s]  speed that the car was going when the cruise control was set.
+[335.08s -> 343.16s]  Now, assume that the car starts in a steady state position on flat road. And what I mean by that is
+[343.16s -> 349.16s]  that the speed is constant at your desired speed, and also that the gas pedal is depressed the amount
+[349.16s -> 355.56s]  needed to generate that speed. For this example, let's say that the desired speed is 100 miles per hour.
+[356.12s -> 361.16s]  Therefore, the speedometer would also read 100 miles per hour, and since the measured speed exactly
+[361.16s -> 366.68s]  matches the reference speed, the error term is zero. The gas pedal would stay exactly where it is.
+[366.68s -> 371.56s]  Once the car encounters the hill, the speed starts to slow. Now the reference speed is greater than
+[371.56s -> 376.28s]  the measured speed, and the error term becomes positive, which signals the controller to speed up.
+[376.84s -> 381.64s]  If the car encounters a downhill, the speed will increase. Now the reference speed is less than the
+[381.64s -> 386.76s]  measured speed, and the error term will be negative. The beauty of the feedback control system is that it is
+[386.76s -> 392.04s]  capable of reacting to changes to the plant automatically by constantly driving the error term to zero.
+[393.08s -> 396.04s]  I want to leave you with one more thought regarding closed loop control.
+[397.40s -> 403.64s]  If we take a block diagram and assign letters that abstractly represent the various parts of a control
+[403.64s -> 409.16s]  system, we can gain new insight into how feedback control is manipulating a system.
+[410.12s -> 416.04s]  For example, if we label the reference signal V, and we call the controller some abstract process D,
+[416.60s -> 421.72s]  through the plant G, which produces an output we'll call Y, which can be fed back through the sensor H
+[421.72s -> 427.08s]  to generate an error term E. We can then reduce this block diagram even further.
+[428.68s -> 432.28s]  For example, we can multiply D and G to combine into a single block.
+[433.16s -> 436.60s]  To reduce further, however, takes a small amount of algebra.
+[436.60s -> 442.84s]  The error signal is the reference signal V minus the output Y times the sensor process H.
+[443.72s -> 446.52s]  The output Y is the error term times D times G.
+[447.88s -> 451.40s]  Now solve this equation for E, which will give you Y over DG.
+[452.76s -> 458.52s]  Now you can set both equations equal to each other, and through a few more algebraic steps,
+[458.52s -> 461.96s]  you can solve for the variable Y with respect to V.
+[461.96s -> 470.12s]  And since Y is the output and V is the input, the rest of that equation is what we refer to
+[470.12s -> 472.44s]  as a transfer function of the system.
+[474.44s -> 480.20s]  In this case, the transfer function is D times G over 1 plus DGH.
+[480.20s -> 485.88s]  And for those who are paying attention, you'll notice that I forgot to write the V at the end of that equation there.
+[488.28s -> 491.00s]  We can now rewrite this back in block diagram form.
+[491.00s -> 494.44s]  These two block diagram representations are equivalent of each other.
+[494.44s -> 499.32s]  Now doesn't this new process look a lot like an open loop control system, only with a modified plant?
+[499.32s -> 503.32s]  The feedback path has altered the original plant to be something new.
+[503.32s -> 507.32s]  And furthermore, the open loop behavior of this new plant has the exact characteristics
+[507.32s -> 510.84s]  we wanted from the original plant, namely that it follows our input.
+[511.56s -> 513.96s]  Now here's something to ponder until the next video.
+[514.68s -> 517.00s]  What are the limitations of feedback control?
+[517.72s -> 522.36s]  In other words, can we make any plant G behave like anything we choose
+[522.36s -> 529.24s]  just by adding a feedback control system, which is made up of a controller D and a sensor H?
+[532.04s -> 535.80s]  One other thing, do you think in our car example from up above,
+[536.36s -> 542.60s]  that using feedback control we can turn a Pinto into a Ferrari just by applying more gas?
+[544.04s -> 545.96s]  We'll discuss that in a future video.

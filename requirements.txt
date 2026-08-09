@@ -1,0 +1,7 @@
+# personal-KB runtime dependencies for manifests, retrieval, and artifact handling.
+# Live OpenViking and GPU/media stacks are intentionally separate; see the README.
+PyYAML>=6.0
+Pillow>=10.0
+PyMuPDF>=1.24
+rank-bm25>=0.2.2
+tiktoken>=0.7

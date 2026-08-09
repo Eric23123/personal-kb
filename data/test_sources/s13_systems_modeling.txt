@@ -1,0 +1,45 @@
+# Systems Modeling — Model-Based Engineering
+
+## SysML Overview
+
+The Systems Modeling Language (SysML) extends UML for systems engineering with
+nine diagram types:
+
+- Block Definition Diagram (BDD): system hierarchy and composition
+- Internal Block Diagram (IBD): part interconnections and flows
+- Parametric Diagram: constraint relationships between properties
+- Requirement Diagram: traceability from requirements to design
+- Activity Diagram: functional flow and behavior
+- State Machine Diagram: state-based behavior
+- Sequence Diagram: time-ordered interactions
+- Use Case Diagram: actor-system interactions
+- Package Diagram: model organization
+
+## Modelica
+
+Modelica is an equation-based, object-oriented language for modeling physical
+systems. Key features:
+
+    model Pendulum
+      parameter Real L = 1.0 "Length";
+      parameter Real g = 9.81 "Gravity";
+      Real theta "Angle";
+      Real omega "Angular velocity";
+    equation
+      der(theta) = omega;
+      L * der(omega) + g * sin(theta) = 0;
+    end Pendulum;
+
+## Bond Graphs
+
+Bond graphs represent power flow between system components. Elements:
+- Effort sources (Se) and Flow sources (Sf)
+- Inertia (I), Capacitance (C), Resistance (R)
+- Transformers (TF) and Gyrators (GY)
+- 0-junctions (common effort) and 1-junctions (common flow)
+
+## Related Topics
+
+- State-space representation from bond graphs — see s01
+- Modelica for control system simulation — see s01, s02
+- Reliability modeling of system components — see s14

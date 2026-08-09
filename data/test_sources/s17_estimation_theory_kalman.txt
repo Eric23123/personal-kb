@@ -1,0 +1,82 @@
+# Estimation Theory and Kalman Filtering
+
+## Minimum Mean Square Error (MMSE) Estimation
+
+Given observations Y, the MMSE estimator of X minimizes E[||X - X̂||²]:
+
+    X̂_MMSE = E[X | Y]
+
+This is the conditional mean. The estimation error covariance is:
+P = E[(X - X̂)(X - X̂)^T | Y]. For jointly Gaussian (X, Y), the MMSE estimator
+is linear and equals the conditional mean:
+
+    X̂ = μ_X + Σ_{XY} Σ_{YY}⁻¹ (Y - μ_Y)
+    P = Σ_{XX} - Σ_{XY} Σ_{YY}⁻¹ Σ_{YX}
+
+This is the foundation of the Kalman filter as recursive MMSE for Gauss-Markov
+processes — see s05 for probability and s06 for the recursive Bayesian interpretation.
+
+## Discrete-Time Kalman Filter
+
+For the linear state-space model with Gaussian noise:
+
+    x_{k+1} = F_k x_k + G_k u_k + w_k,    w_k ~ N(0, Q_k)
+    y_k = H_k x_k + v_k,                  v_k ~ N(0, R_k)
+
+The Kalman filter recursively computes the state estimate x̂_{k|k} and covariance P_{k|k}:
+
+**Prediction step:**
+    x̂_{k|k-1} = F_{k-1} x̂_{k-1|k-1} + G_{k-1} u_{k-1}
+    P_{k|k-1} = F_{k-1} P_{k-1|k-1} F_{k-1}^T + Q_{k-1}
+
+**Update step:**
+    K_k = P_{k|k-1} H_k^T (H_k P_{k|k-1} H_k^T + R_k)⁻¹        (Kalman gain)
+    x̂_{k|k} = x̂_{k|k-1} + K_k (y_k - H_k x̂_{k|k-1})            (innovation update)
+    P_{k|k} = (I - K_k H_k) P_{k|k-1}                            (Joseph form)
+
+The innovation (residual) ν_k = y_k - H_k x̂_{k|k-1} is white with covariance
+S_k = H_k P_{k|k-1} H_k^T + R_k — a key diagnostic for filter consistency.
+
+## Duality with LQR
+
+The Kalman filter and the Linear Quadratic Regulator share a profound algebraic
+duality. The filter Riccati equation for the error covariance P:
+
+    P_{k+1|k} = F P_{k|k-1} F^T + Q - F P_{k|k-1} H^T (H P_{k|k-1} H^T + R)⁻¹ H P_{k|k-1} F^T
+
+is the dual of the LQR algebraic Riccati equation (see s04) under the mapping:
+F ↔ A^T, H ↔ B^T, Q ↔ Q, R ↔ R. The Kalman gain K is the dual of the LQR
+feedback gain. Controllability of (F, Q^{1/2}) dualizes to observability of
+(H, F) — see s01 for the observability matrix rank condition.
+
+## Extended Kalman Filter (EKF)
+
+For nonlinear systems x_{k+1} = f(x_k, u_k) + w_k, y_k = h(x_k) + v_k, the EKF
+linearizes around the current estimate:
+
+    F_k = ∂f/∂x|_{x̂_{k|k}, u_k},    H_k = ∂h/∂x|_{x̂_{k|k-1}}
+
+The prediction and update steps use these Jacobians identically to the linear
+Kalman filter. EKF performance degrades when nonlinearities are severe — see s03
+for nonlinear system fundamentals.
+
+## Continuous-Time Kalman-Bucy Filter
+
+The continuous-time analog for dx/dt = A x + B u + w, y = C x + v with
+w ~ N(0, Q_c), v ~ N(0, R_c):
+
+    dx̂/dt = A x̂ + B u + K (y - C x̂)
+    dP/dt = A P + P A^T + Q_c - P C^T R_c⁻¹ C P
+
+The steady-state gain K_∞ = P_∞ C^T R_c⁻¹ where P_∞ solves the continuous
+algebraic Riccati equation. The innovation process dy - C x̂ dt is a Wiener
+process — see s08 for Brownian motion theory.
+
+## Related Topics
+
+- State-space foundations (controllability, observability) — see s01
+- LQR optimal control and Riccati equation duality — see s04
+- Nonlinear system linearization and EKF applicability — see s03
+- Recursive Bayesian estimation framework — see s06
+- Wiener process and stochastic differential equations — see s08
+- Digital filter design (Kalman as optimal recursive filter) — see s16

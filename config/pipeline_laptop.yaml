@@ -1,0 +1,173 @@
+# Personal KB — Laptop Media-Processing Pipeline Configuration
+#
+# This YAML drives the local laptop pipeline (scripts/ops/laptop_pipeline.py).
+# It discovers inputs, processes media locally on the laptop, emits a
+# machine-readable pipeline manifest, and indexes only when --index is
+# explicitly provided.
+#
+# The pipeline never touches OpenViking or Hindsight at import time — all
+# network connections are deferred to explicit method calls.
+
+pipeline:
+  name: "laptop_pipeline"
+  version: "0.1.0"
+  description: >
+    Local media ingestion pipeline for the laptop workstation.
+    Discover, process, and optionally index course media without
+    requiring OpenViking or Hindsight services.
+
+# ── Input discovery ──────────────────────────────────────────────────────
+
+input:
+  # Default directories scanned by discover_inputs() when no explicit
+  # --input-dir is provided.  Empty by design — the CLI requires an
+  # explicit directory.
+  directories: []
+
+  # Recognised file extensions grouped by media kind.  The pipeline
+  # maps each extension to one of "audio", "pdf", "image", or "text".
+  extensions:
+    audio:
+      - ".mp3"
+      - ".wav"
+      - ".m4a"
+      - ".flac"
+      - ".ogg"
+      - ".opus"
+      - ".aac"
+      - ".wma"
+      - ".aiff"
+      - ".aif"
+      - ".wv"
+      - ".amr"
+    pdf:
+      - ".pdf"
+    image:
+      - ".png"
+      - ".jpg"
+      - ".jpeg"
+      - ".bmp"
+      - ".tiff"
+      - ".tif"
+      - ".gif"
+      - ".webp"
+      - ".svg"
+      - ".ico"
+      - ".heic"
+      - ".heif"
+    text:
+      - ".txt"
+      - ".md"
+      - ".markdown"
+      - ".rst"
+      - ".org"
+      - ".tex"
+      - ".log"
+      - ".csv"
+      - ".json"
+      - ".yaml"
+      - ".yml"
+      - ".xml"
+      - ".html"
+      - ".htm"
+      - ".py"
+      - ".js"
+      - ".ts"
+      - ".c"
+      - ".cpp"
+      - ".h"
+      - ".hpp"
+      - ".rs"
+      - ".go"
+      - ".java"
+      - ".rb"
+      - ".sh"
+      - ".bat"
+      - ".ps1"
+      - ".toml"
+      - ".cfg"
+      - ".ini"
+      - ".sql"
+      - ".r"
+      - ".rmd"
+      - ".mm"
+      - ".m"
+
+# ── Processing functions ─────────────────────────────────────────────────
+
+processing:
+  # Transcription (audio → text)
+  transcribe:
+    # Engine label stored in the artifact extraction_engine field.
+    engine: "whisperx-turbo"
+    # Default callable (lazy-imported).  Must accept (path, output, **kwargs).
+    default_func: "scripts.media.transcribe.transcribe_whisperx"
+
+  # OCR (PDF → text)
+  ocr:
+    # Primary engine for digital/scanned PDF pages.
+    engine: "qwen-vl-plus"
+  # Optional alternate DashScope vision model when the primary call fails.
+    fallback: ""
+    # Default callable (lazy-imported).  Must accept (pdf_path, output_path, ...).
+    default_func: "scripts.media.transcribe.ocr_pdf"
+
+  # Diagram description (image → text)
+  diagram:
+    # Vision model for diagram classification & description.
+    engine: "qwen-vl-plus"
+    # Default callable (lazy-imported).
+    default_func: "scripts.media.diagrams.describe_diagram"
+
+# ── Output paths ─────────────────────────────────────────────────────────
+
+output:
+  # Base directory for deterministic artifacts.  Individual files use the
+  # pattern <output_dir>/<sha256>_<label>.txt so repeated runs are idempotent.
+  base_dir: "artifacts/laptop_pipeline"
+
+  # Machine-readable manifest written after a pipeline run.
+  manifest_file: "pipeline_manifest.json"
+
+# ── Deterministic naming ─────────────────────────────────────────────────
+
+naming:
+  # Pattern used by _deterministic_output_path().
+  # {source_hash}: hex-encoded SHA-256 of the original source file.
+  # {kind_label}:  "transcript" | "ocr" | "diagram" | "text"
+  pattern: "{source_hash}_{kind_label}.txt"
+  kind_labels:
+    audio: "transcript"
+    pdf: "ocr"
+    image: "diagram"
+    text: "text"
+
+# ── Indexing (opt-in) ────────────────────────────────────────────────────
+
+indexing:
+  # Only index when --index is explicitly passed on the CLI.
+  enabled: false
+
+  # Batch ingestion backend — imported lazily so a missing module does not
+  # block processing.
+  backend: "scripts.ops.batch_ingest"
+
+  # Log file written by run_batch during indexing.
+  log_file: "index_ingestion.jsonl"
+
+# ── Connectivity (read-only, repeatable) ──────────────────────────────────
+connectivity:
+  # Override with PERSONAL_KB_LAPTOP_HOST when the laptop Tailscale address changes.
+  laptop_host: "127.0.0.1"
+  rounds: 3
+  timeout_seconds: 5
+  command: "python scripts/ops/connectivity_test.py --rounds 3 --timeout 5"
+  embedding_url: "http://127.0.0.1:8001"
+  embedding_health_path: "/health"
+  openviking_url: "http://127.0.0.1:1934"
+  hindsight_health_url: "http://127.0.0.1:8888/health"
+
+# ── Courses (informational — used when --course is not provided) ─────────
+courses:
+  # Placeholder; course codes are normally passed via --course at runtime.
+  default: null

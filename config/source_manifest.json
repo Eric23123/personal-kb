@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "hash_algorithm": "sha256",
+  "description": "Self-contained synthetic sources for offline validation and examples. Keep real course manifests local.",
+  "lecture_policy": "optional; omit for homework, exams, textbooks, or material spanning multiple lectures",
+  "required_fields": [
+    "source_path",
+    "source_hash",
+    "source_type"
+  ],
+  "optional_fields": [
+    "course",
+    "semester",
+    "date",
+    "lecture",
+    "corpus",
+    "file_name",
+    "derived_text_path",
+    "derived_hash"
+  ],
+  "sources": [
+    {
+      "source_path": "data/test_sources/s01_linear_systems_theory.txt",
+      "source_hash": "c97ee638bacd2ee5af39c75a7cd847cf2772bbfc5321e15f64792b0872c44039",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s02_frequency_domain_analysis.txt",
+      "source_hash": "8dcfe1baad7d60d4ba5836152fc9003d929c2e3c3f17f889510c55e9ecad6044",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s03_nonlinear_control_intro.txt",
+      "source_hash": "8b670d1716e987b1d768f1b6f56bde46b4c9d9ddb342798b1350651b120a92a0",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s04_optimal_control_lqr.txt",
+      "source_hash": "04b1965aa9e5a0f9798a9645b17bb31409ba8462062b629654036426232e7f8d",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s05_probability_foundations.txt",
+      "source_hash": "247a0ee067ea21220d6ca653c7fd0f37588da6268fccc2a62876f2b4586edb6d",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s06_bayesian_inference.txt",
+      "source_hash": "260896f24f8eca4505f4149cee6df28b528950e6ea7cc9ed490e535b9b8046a0",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s07_hypothesis_testing.txt",
+      "source_hash": "055d5cce3fd09fb68f3223a718d56101fec8bc5c4dac895a0a6110cc360d967f",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s08_stochastic_processes.txt",
+      "source_hash": "41e6738a1534d363381b919dc58e52c0cb14568153e8a9094173113f05aed9dd",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s09_convex_optimization.txt",
+      "source_hash": "8e8532142dfac0b712e49aeeede09deb600bda4f84c4953b8e4fa32204d9ea4b",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s10_gradient_methods.txt",
+      "source_hash": "3207018fb6c9b0e045d690f3f583d5c2b62f6c6acb5347444bbd3f959ba7062c",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s11_linear_programming.txt",
+      "source_hash": "570a0f5ddd30ec3e5e49732e711f463c5b1c0a913d2d33a44b567f7d32881070",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s12_combinatorial_optimization.txt",
+      "source_hash": "bbe2887b47be63ad06f9ecf7d182c28570b1f340a9683354bc87250be16e4a7f",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s13_systems_modeling.txt",
+      "source_hash": "36f9f85eebaa2ef2727cd8bf96d721fd32c6646a0c60d25d4a41d8cee06da98c",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s14_reliability_engineering.txt",
+      "source_hash": "68efc3138f9af682ad5af86f1b0dafa1255d2c5b13eec1393739b62d3ba52306",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s15_supply_chain_analytics.txt",
+      "source_hash": "659da93c054c5dbf69e97fc65e57cfd0cdc46b7de4972d2f9dfb466aad2f36c0",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s16_digital_signal_processing.txt",
+      "source_hash": "fc30246f74428a8955d856d0c06bfcfd549bed04ebbf4e476e9fea72ca7ef1bf",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s17_estimation_theory_kalman.txt",
+      "source_hash": "9c64b270483122b0464f8130b116aa47376ca905bbc1a7d0f35d2feae085eb24",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/test_sources/s18_information_theory.txt",
+      "source_hash": "d0c91e896a00fd8bdf26f7683a26b8704df710c3547f94ded8e0a41c9458d0e9",
+      "source_type": "reference",
+      "course": "TEST",
+      "semester": "TEST",
+      "corpus": "test"
+    },
+    {
+      "source_path": "data/Test_whisper.txt",
+      "source_hash": "d924f9105299c7266a161c1a4c2197cf4222ec15c0f060a019b475a07466b0ec",
+      "source_type": "transcript",
+      "course": "TEST-FIXTURE",
+      "semester": "TEST",
+      "corpus": "test"
+    }
+  ]
+}

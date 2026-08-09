@@ -1,0 +1,9 @@
+# Optional media/GPU stack. Install only if you need model-backed transcription,
+# OCR, or reranking.
+-r requirements.txt
+faster-whisper>=1.2
+whisperx>=3.3
+torch>=2.1
+transformers>=4.45
+sentence-transformers>=3.0
+gradio>=4.0

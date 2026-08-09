@@ -1,0 +1,44 @@
+# Optimal Control — Linear Quadratic Regulator
+
+## Problem Formulation
+
+For the linear system dx/dt = A x + B u, find u(t) that minimizes:
+
+    J = ∫₀^∞ (x^T Q x + u^T R u) dt
+
+where Q = Q^T ≥ 0 (state penalty) and R = R^T > 0 (control penalty).
+
+## Algebraic Riccati Equation (ARE)
+
+The optimal control law is u = -K x with K = R⁻¹ B^T P, where P satisfies:
+
+    A^T P + P A - P B R⁻¹ B^T P + Q = 0
+
+The closed-loop system dx/dt = (A - B K) x is asymptotically stable if (A, B) is
+stabilizable and (A, Q^{1/2}) is detectable.
+
+## Pontryagin's Minimum Principle
+
+For a general optimal control problem with cost:
+
+    J = φ(x(t_f)) + ∫₀^{t_f} L(x, u, t) dt
+
+The Hamiltonian is H = L(x, u, t) + λ^T f(x, u, t). The necessary conditions are:
+
+    dx/dt = ∂H/∂λ    (state equation)
+    dλ/dt = -∂H/∂x   (costate equation)
+    ∂H/∂u = 0        (optimality condition)
+
+## Dynamic Programming
+
+Bellman's principle of optimality leads to the Hamilton-Jacobi-Bellman (HJB) equation:
+
+    -∂V/∂t = min_u [L(x, u, t) + (∂V/∂x)^T f(x, u, t)]
+
+For the infinite-horizon LQR, V(x) = x^T P x satisfies the HJB equation exactly.
+
+## Related Topics
+
+- Controllability required for LQR solution — see s01
+- Lyapunov stability via ARE solution — see s01, s03
+- Kalman filter as the dual estimation problem — see s17

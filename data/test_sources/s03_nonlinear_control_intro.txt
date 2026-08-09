@@ -1,0 +1,48 @@
+# Introduction to Nonlinear Control
+
+## Nonlinear State-Space Models
+
+A general nonlinear system is:
+
+    dx/dt = f(x, u, t)
+    y = h(x, u, t)
+
+where f and h are nonlinear vector functions. Unlike linear systems, superposition
+does not hold, and stability is local rather than global.
+
+## Linearization
+
+Around an equilibrium point (x₀, u₀) where f(x₀, u₀) = 0, the Jacobian linearization
+gives:
+
+    A = ∂f/∂x|_{x₀,u₀},  B = ∂f/∂u|_{x₀,u₀}
+    C = ∂h/∂x|_{x₀,u₀},  D = ∂h/∂u|_{x₀,u₀}
+
+The linearized system dx̃/dt = A x̃ + B ũ approximates the nonlinear system near
+the equilibrium. Lyapunov's indirect method: if the linearization is asymptotically
+stable, the nonlinear equilibrium is locally asymptotically stable.
+
+## Lyapunov's Direct Method
+
+A function V: Rⁿ → R is a Lyapunov function for equilibrium x=0 if:
+1. V(0) = 0 and V(x) > 0 for x ≠ 0 (positive definite)
+2. dV/dt = (∂V/∂x)^T f(x) < 0 for x ≠ 0 (negative definite derivative)
+
+If such a V exists, the equilibrium is asymptotically stable. For linear systems
+dx/dt = Ax, the quadratic form V(x) = x^T P x with P = P^T > 0 gives
+dV/dt = x^T(A^T P + P A)x.
+
+## Describing Functions
+
+For nonlinear elements in feedback loops, the describing function N(A) approximates
+the gain at amplitude A for a sinusoidal input. The limit cycle condition is:
+
+    1 + G(jω) N(A) = 0
+
+This extends frequency-domain analysis (Bode, Nyquist) to nonlinear systems.
+
+## Related Topics
+
+- Linear Lyapunov equation — see s01
+- Bode and Nyquist for linear frequency analysis — see s02
+- Kalman filter for nonlinear estimation (EKF) — see s17

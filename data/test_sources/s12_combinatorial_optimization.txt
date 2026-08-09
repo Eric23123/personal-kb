@@ -1,0 +1,40 @@
+# Combinatorial Optimization — Exact and Heuristic Methods
+
+## Dynamic Programming
+
+Bellman's principle: an optimal policy has the property that, whatever the initial
+state and decision, the remaining decisions must constitute an optimal policy with
+regard to the state resulting from the first decision.
+
+The DP recurrence: V(s) = min_a [c(s, a) + V(T(s, a))].
+
+Classic DP problems:
+- Knapsack: max Σ v_i x_i subject to Σ w_i x_i ≤ W, x_i ∈ {0, 1}
+- Shortest path: Dijkstra's O((V+E) log V) or Bellman-Ford O(VE)
+- Edit distance: O(mn) DP for string alignment
+
+## Branch and Bound
+
+Systematically enumerates candidate solutions by branching on variables and
+bounding the objective using relaxations. The LP relaxation of an integer program
+provides a lower bound. Subproblems are pruned if their bound exceeds the best
+known feasible solution.
+
+## Heuristics and Metaheuristics
+
+When exact methods are too slow:
+- Greedy algorithms: make the locally optimal choice at each step
+- Simulated annealing: accept worse solutions with probability e^{-ΔE/T}
+- Genetic algorithms: crossover, mutation, selection
+- Ant colony optimization: pheromone trails guide search
+
+## Approximation Algorithms
+
+An α-approximation algorithm guarantees cost ≤ α · OPT (for minimization).
+Examples: 2-approximation for vertex cover, (1-1/e)-approximation for max coverage.
+
+## Related Topics
+
+- Dynamic programming for optimal control (HJB) — see s04
+- Convex relaxations provide bounds — see s09
+- Greedy algorithms in gradient methods — see s10

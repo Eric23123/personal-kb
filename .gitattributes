@@ -1,0 +1,9 @@
+# Keep source and documentation line endings stable across platforms.
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.sh text eol=lf
+*.vbs text eol=crlf

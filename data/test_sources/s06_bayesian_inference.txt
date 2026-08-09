@@ -1,0 +1,40 @@
+# Bayesian Inference Methods
+
+## Bayes' Theorem
+
+For parameters θ and data D:
+
+    p(θ|D) = p(D|θ) p(θ) / p(D) ∝ p(D|θ) p(θ)
+
+where p(θ|D) is the posterior, p(D|θ) is the likelihood, p(θ) is the prior.
+
+## Conjugate Priors
+
+A prior is conjugate to a likelihood if the posterior belongs to the same family:
+
+- Beta-Binomial: θ ~ Beta(α, β), X|θ ~ Binomial(n, θ) → θ|X ~ Beta(α+X, β+n-X)
+- Normal-Normal (known variance): θ ~ N(μ₀, τ₀²), X_i|θ ~ N(θ, σ²) with n observations
+  → θ|X ~ N((μ₀/τ₀² + nX̄/σ²)/(1/τ₀² + n/σ²), 1/(1/τ₀² + n/σ²))
+- Gamma-Poisson: λ ~ Gamma(α, β), X|λ ~ Poisson(λ) → λ|X ~ Gamma(α+ΣX_i, β+n)
+
+## Markov Chain Monte Carlo (MCMC)
+
+When the posterior is not analytically tractable, MCMC methods sample from it:
+
+- Metropolis-Hastings: Propose θ* ~ q(θ*|θ_t), accept with probability
+  α = min(1, [p(θ*|D) q(θ_t|θ*)] / [p(θ_t|D) q(θ*|θ_t)])
+
+- Gibbs sampling: Sample each θ_i from its full conditional p(θ_i|θ_{-i}, D)
+
+## Variational Inference
+
+Approximate the posterior p(θ|D) with a simpler distribution q(θ) by minimizing
+KL(q || p). The evidence lower bound (ELBO) is:
+
+    ELBO = E_q[log p(D, θ)] - E_q[log q(θ)] ≤ log p(D)
+
+## Related Topics
+
+- Probability foundations — see s05
+- Maximum likelihood as a special case with flat priors — see s07
+- Kalman filter as recursive Bayesian estimation — see s17

@@ -1,0 +1,45 @@
+# Frequency Domain Analysis — Bode, Nyquist, and Margins
+
+## Transfer Functions
+
+For a linear system with transfer function G(s) = N(s)/D(s), the frequency response
+is G(jω) = |G(jω)| e^{j∠G(jω)}. The Bode plot displays 20 log₁₀|G(jω)| (dB) and
+∠G(jω) (degrees) against log₁₀(ω).
+
+## Gain Margin and Phase Margin
+
+- Gain crossover frequency ω_gc: |G(jω_gc)| = 1 (0 dB)
+- Phase crossover frequency ω_pc: ∠G(jω_pc) = -180°
+- Gain margin: GM = 1/|G(jω_pc)| or GM_dB = -20 log₁₀|G(jω_pc)|
+- Phase margin: PM = 180° + ∠G(jω_gc)
+
+For stability, both GM > 1 (or GM_dB > 0) and PM > 0 are required for minimum-phase
+systems. The margins quantify robustness to gain and phase variations.
+
+## Nyquist Criterion
+
+The Nyquist criterion determines closed-loop stability from the open-loop transfer
+function L(s) = G(s)H(s). Let N be the number of clockwise encirclements of -1 by
+the Nyquist plot, P be the number of open-loop unstable poles, and Z be the number
+of closed-loop unstable poles. Then:
+
+    N = Z - P  →  Z = N + P
+
+For closed-loop stability, Z = 0, so N = -P (counterclockwise encirclements of -1
+equal to the number of open-loop unstable poles).
+
+## Routh-Hurwitz Stability
+
+For a polynomial a₀sⁿ + a₁sⁿ⁻¹ + ... + a_n, the Routh array determines stability
+without computing roots. A system is stable iff all elements in the first column
+of the Routh array have the same sign. The number of sign changes equals the number
+of right-half-plane roots.
+
+Example: For G(s) = 10/[s(s+1)(s+9)], the characteristic equation is
+s³ + 10s² + 9s + 10K = 0. The Routh array gives K < 9 for stability.
+
+## Related Topics
+
+- State-space frequency response: G(jω) = C(jωI - A)⁻¹B + D — see s01
+- Nonlinear describing functions as a frequency-domain extension — see s03
+- Digital filter design uses similar frequency-domain concepts — see s16

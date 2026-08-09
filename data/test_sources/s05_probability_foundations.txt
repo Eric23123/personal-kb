@@ -1,0 +1,40 @@
+# Probability Theory — Measure-Theoretic Foundations
+
+## Probability Space
+
+A probability space (Ω, F, P) consists of:
+- Sample space Ω
+- σ-algebra F of events
+- Probability measure P: F → [0, 1] with P(Ω) = 1
+
+## Random Variables and Expectation
+
+A random variable X: Ω → R is F-measurable. The expectation is:
+
+    E[X] = ∫_Ω X(ω) dP(ω)
+
+The variance is Var(X) = E[(X - E[X])²] = E[X²] - E[X]².
+
+## Convergence Concepts
+
+- Almost sure convergence: X_n → X a.s. if P(lim X_n = X) = 1
+- Convergence in probability: X_n →^P X if ∀ε>0, P(|X_n - X| > ε) → 0
+- Convergence in distribution: X_n →^D X if F_n(x) → F(x) at continuity points
+- L^p convergence: E[|X_n - X|^p] → 0
+
+Relationships: a.s. ⇒ probability ⇒ distribution; L^p ⇒ probability.
+
+## Central Limit Theorem
+
+For i.i.d. random variables X_i with mean μ and variance σ²:
+
+    (X̄_n - μ) / (σ/√n) →^D N(0, 1)
+
+This is the foundation of confidence intervals and hypothesis testing.
+
+## Related Topics
+
+- Bayesian inference builds on conditional probability — see s06
+- Hypothesis testing uses CLT for test statistics — see s07
+- Stochastic processes extend to time-indexed families — see s08
+- Information theory uses probability as foundation — see s18

@@ -1,0 +1,6 @@
+collections:
+  PERSONAL-DEFAULT:
+    name: "Personal Knowledge Base"
+    status: template
+    description: "Replace this entry with a collection for your own material."
+    topics: []

@@ -1,0 +1,1 @@
+# Personal KB — core module

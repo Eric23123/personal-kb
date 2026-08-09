@@ -1,0 +1,41 @@
+# Linear Programming — Simplex and Duality
+
+## Standard Form
+
+    minimize  c^T x
+    subject to  A x = b,  x ≥ 0
+
+where A ∈ R^{m×n}, b ∈ R^m, c ∈ R^n, and x ∈ R^n is the decision variable.
+
+## Simplex Method
+
+The simplex method moves from one basic feasible solution (BFS) to an adjacent one
+with lower cost. At each iteration:
+
+1. Choose entering variable j with reduced cost c̄_j = c_j - c_B^T B⁻¹ A_j < 0
+2. Choose leaving variable i by the minimum ratio test: min_i (B⁻¹b)_i / (B⁻¹A_j)_i
+3. Update basis B and repeat
+
+The algorithm terminates when all reduced costs are nonnegative (optimality).
+
+## Duality
+
+The dual of the primal LP is:
+
+    maximize  b^T y
+    subject to  A^T y ≤ c
+
+Weak duality: b^T y ≤ c^T x for any feasible x, y. Strong duality: at optimality,
+b^T y* = c^T x*. Complementary slackness: x_j (c_j - a_j^T y) = 0 for all j.
+
+## Sensitivity Analysis
+
+Shadow prices y* = c_B^T B⁻¹ give the marginal value of relaxing constraint i.
+The allowable range for a coefficient c_j before the optimal basis changes can
+be computed from the reduced costs.
+
+## Related Topics
+
+- Convex optimization generalizes LP — see s09
+- KKT conditions reduce to LP duality — see s09
+- Supply chain models use LP extensively — see s15

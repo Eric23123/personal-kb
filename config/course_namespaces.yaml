@@ -1,0 +1,26 @@
+# Personal KB collection registry.
+#
+# Add your own collections here before syncing generated notes. Each collection
+# has an isolated OpenViking URI prefix and an Obsidian destination.
+
+courses:
+  "PERSONAL-DEFAULT":
+    slug: personal-default
+    name: "Personal Knowledge Base"
+    openviking: viking://resources/personal-kb/personal-default
+    obsidian: "Personal/Knowledge Base"
+    status: template
+
+  "E2E-TEST":
+    slug: e2e-test
+    name: "End-to-End Gate Test Collection"
+    openviking: viking://resources/personal-kb/E2E-TEST
+    obsidian: ""
+    status: test-only
+
+  "TEST-FIXTURE":
+    slug: test-fixture
+    name: "Media Fixture Test Collection"
+    openviking: viking://resources/personal-kb/TEST-FIXTURE
+    obsidian: ""
+    status: test-only
