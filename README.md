@@ -28,10 +28,28 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 
 ## 界面预览
 
+### 资料库导入
+
 <div align="center">
   <img src="docs/assets/library-home.png" alt="Personal KB 资料库导入界面" width="960" />
   <br />
   <sub>资料库首页：拖入文件或文件夹，开始建立属于自己的知识库。</sub>
+</div>
+
+### 资源管理
+
+<div align="center">
+  <img src="docs/assets/resource-manager.png" alt="Personal KB 资源管理界面" width="960" />
+  <br />
+  <sub>按文件夹组织资料，筛选处理状态，并在更新后统一完成索引。</sub>
+</div>
+
+### 来源检索
+
+<div align="center">
+  <img src="docs/assets/source-grounded-search.png" alt="Personal KB 来源约束检索界面" width="960" />
+  <br />
+  <sub>根据资料原文组织回答，并可展开查看具体来源。</sub>
 </div>
 
 ## 核心能力
