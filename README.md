@@ -4,7 +4,7 @@
 
 ### Local-first knowledge workspace for your documents, notes, and learning materials.
 
-<strong>打造专属于你的知识库！</strong>
+<h2>打造专属于你的知识库！</h2>
 
 [![Platform](https://img.shields.io/badge/platform-Windows_10%2F11-1f6feb?style=flat-square)](#快速开始)
 [![Desktop](https://img.shields.io/badge/desktop-Tauri_%2B_React-0f766e?style=flat-square)](#技术构成)
