@@ -12,7 +12,7 @@
 [![Tests](https://img.shields.io/badge/tests-332_passing-15803d?style=flat-square)](#开发与验证)
 [![Status](https://img.shields.io/badge/status-Preview-f59e0b?style=flat-square)](#项目状态)
 
-**[核心能力](#核心能力)** · **[快速开始](#快速开始)** · **[使用方式](#使用方式)** · **[技术构成](#技术构成)** · **[项目状态](#项目状态)**
+**[界面预览](#界面预览)** · **[核心能力](#核心能力)** · **[工作流](#工作流)** · **[快速开始](#快速开始)** · **[技术构成](#技术构成)** · **[项目状态](#项目状态)**
 
 </div>
 
@@ -33,7 +33,7 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 <div align="center">
   <img src="docs/assets/library-home.png" alt="Personal KB 资料库导入界面" width="960" />
   <br />
-  <sub>资料库首页：拖入文件或文件夹，开始建立属于自己的知识库。</sub>
+  <sub>资料库首页：支持拖入文件或文件夹，作为知识库的统一入口。</sub>
 </div>
 
 ### 资源管理
@@ -41,7 +41,7 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 <div align="center">
   <img src="docs/assets/resource-manager.png" alt="Personal KB 资源管理界面" width="960" />
   <br />
-  <sub>按文件夹组织资料，筛选处理状态，并在更新后统一完成索引。</sub>
+  <sub>资源管理：保留文件夹层级，筛选处理状态，并按需完成更新与索引。</sub>
 </div>
 
 ### 来源检索
@@ -49,7 +49,7 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 <div align="center">
   <img src="docs/assets/source-grounded-search.png" alt="Personal KB 来源约束检索界面" width="960" />
   <br />
-  <sub>根据资料原文组织回答，并可展开查看具体来源。</sub>
+  <sub>来源检索：基于资料原文组织回答，并可展开追溯具体来源。</sub>
 </div>
 
 ## 核心能力
