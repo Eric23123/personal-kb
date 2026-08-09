@@ -24,7 +24,7 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 
 它不试图替代你的文件系统或 Obsidian，而是让两者成为同一套工作空间：文件仍由你掌控，资料库可直接被 Obsidian 打开，索引、转写与知识关系则由应用维护。
 
-> **当前为 Windows Preview。** 安装包不包含 Python、OpenViking、语音模型、API Key 或任何用户资料。
+> **当前为 Windows 源码预览版。** 使用者需要自行准备 Python、OpenViking 与按需使用的模型服务；仓库不包含任何用户资料或 API Key。
 
 ## 核心能力
 
@@ -166,19 +166,6 @@ npm run tauri dev
 python -m pip install -r requirements-media.txt
 ```
 
-### 构建 Windows 安装包
-
-```powershell
-cd desktop
-npm run tauri -- build
-```
-
-安装包生成在：
-
-```text
-desktop/src-tauri/target/release/bundle/nsis/Personal KB_0.1.0_x64-setup.exe
-```
-
 ## 隐私、模型与费用
 
 - 原始资料、处理产物、索引和知识链接默认保存在本地知识库目录。
@@ -208,7 +195,7 @@ desktop/src-tauri/target/release/bundle/nsis/Personal KB_0.1.0_x64-setup.exe
 
 - 当前仅支持 Windows。
 - `.ppt` / `.pptx` 建议先导出为 PDF 再导入。
-- 当前安装包不是完全独立版，首次使用仍需准备 Python 与 OpenViking。
+- 当前以源码方式提供，首次使用需要准备 Python 与 OpenViking。
 
 ## 开发与验证
 
