@@ -26,6 +26,14 @@ Personal KB 是一个面向个人学习与长期资料管理的 Windows 桌面�
 
 > **当前为 Windows 源码预览版。** 使用者需要自行准备 Python、OpenViking 与按需使用的模型服务；仓库不包含任何用户资料或 API Key。
 
+## 界面预览
+
+<div align="center">
+  <img src="docs/assets/library-home.png" alt="Personal KB 资料库导入界面" width="960" />
+  <br />
+  <sub>资料库首页：拖入文件或文件夹，开始建立属于自己的知识库。</sub>
+</div>
+
 ## 核心能力
 
 | 资料进入 | 资料理解 | 资料连接 |
