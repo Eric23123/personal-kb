@@ -78,6 +78,13 @@ models/
 data/Personal/
 releases/
 
+# Curated, sanitized screenshots used by the public README.
+!docs/
+!docs/assets/
+!docs/assets/*.png
+!docs/assets/*.jpg
+!docs/assets/*.jpeg
+
 # Internal Codex working instructions are not part of the public project.
 AGENTS.md
 LUNA_DS_WORKING_FRAMEWORK.md
