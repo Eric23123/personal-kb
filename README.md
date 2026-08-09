@@ -2,11 +2,9 @@
 
 # Personal KB
 
-## 打造专属于你的知识库！
-
 ### Local-first knowledge workspace for your documents, notes, and learning materials.
 
-将资料沉淀为可检索、可管理、可关联的个人知识库。
+<strong>打造专属于你的知识库！</strong>
 
 [![Platform](https://img.shields.io/badge/platform-Windows_10%2F11-1f6feb?style=flat-square)](#快速开始)
 [![Desktop](https://img.shields.io/badge/desktop-Tauri_%2B_React-0f766e?style=flat-square)](#技术构成)
